@@ -1,0 +1,43 @@
+spec_version: v1
+kind: native
+name: claims_inference_agent
+version: 0.3.0
+description: Run inference on new encounters using a trained claims model stored in IBM COS
+
+implementation:
+  type: python
+  entrypoint: src/inference_agent.py
+
+inputs:
+  - id: new_encounters
+    type: file
+    description: New encounters CSV file to score
+  - id: model_uri
+    type: string
+    description: COS URI of the trained model
+  - id: api_key
+    type: string
+    description: IBM Cloud API key for COS access
+  - id: service_instance_id
+    type: string
+    description: IBM Cloud COS service instance ID
+  - id: schema_file
+    type: file
+    description: Feature schema JSON file (optional)
+
+outputs:
+  - id: scored_encounters
+    type: string
+    description: COS URI of scored encounters CSV
+  - id: approved_file
+    type: string
+    description: COS URI of claims predicted as Approved
+  - id: need_review_file
+    type: string
+    description: COS URI of claims predicted as Need to Review
+  - id: likely_deniable_file
+    type: string
+    description: COS URI of claims predicted as Likely Deniable
+  - id: inference_report
+    type: string
+    description: COS URI of JSON report summarizing predictions

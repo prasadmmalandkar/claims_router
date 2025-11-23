@@ -1,0 +1,6 @@
+data_path: data/raw/claims_data.csv
+target_col: Claim Status
+outdir: artifacts
+algorithm: random_forest
+test_size: 0.2
+seed: 42

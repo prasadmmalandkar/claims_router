@@ -1,0 +1,34 @@
+spec_version: v1
+kind: workflow
+name: claims_pipeline
+version: 0.1.0
+description: End-to-end workflow to train and score claims
+
+# Define the steps in order
+steps:
+  - id: train
+    agent: claims_training_agent
+    inputs:
+      claims_file: data/raw/claims_data.csv
+    outputs:
+      model_file: artifacts/model.pkl
+      training_report: artifacts/training_report.json
+      feature_schema: artifacts/feature_schema.json
+
+  - id: infer
+    agent: claims_inference_agent
+    inputs:
+      claims_file: data/raw/new_encounters.csv
+      model_file: $steps.train.outputs.model_file
+      schema_file: $steps.train.outputs.feature_schema
+    outputs:
+      scored_claims: artifacts/scored_claims.csv
+      inference_report: artifacts/inference_report.json
+
+# Final workflow outputs
+outputs:
+  model_file: $steps.train.outputs.model_file
+  training_report: $steps.train.outputs.training_report
+  feature_schema: $steps.train.outputs.feature_schema
+  scored_claims: $steps.infer.outputs.scored_claims
+  inference_report: $steps.infer.outputs.inference_report

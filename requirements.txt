@@ -1,0 +1,16 @@
+# Core scientific stack
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.2
+
+# Model libraries
+xgboost==2.1.1
+lightgbm==4.5.0
+
+# Utilities
+joblib==1.4.2
+PyYAML==6.0.2
+
+# Development & testing
+pytest==8.3.3
+faker==30.0.0

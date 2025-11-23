@@ -1,0 +1,5 @@
+Claims No	Claim Line	Member ID	Provider ID	Line of Business ID	Revenue Code	Service Code	Procedure Code	Procedure Description	Diagnosis	Claim Charge Amount	Denial Reason Code	Price Index	In / Out Network	Reference Index	Subscriber Payment Amount	Insurance Eligible Amount	Group Index	Subscriber Index	Claim Type	Claim Subscriber Type	Network ID	Agreement ID	Predicted Status
+NEW0013	2	M2166	P3392	LOB001	510	SVC02	97110	Therapeutic exercises	M25.50	4152.35	No denial reason â€“ claim approved	10	Out	522	262.26	2557.5	16	43	Medical	Dependent	N260	A8061	Approved
+NEW0071	5	M9107	P2170	LOB003	250	SVC03	99213	Office/outpatient visit	I10	4844.64	No denial reason â€“ claim approved	2	In	438	461.78	2209.98	11	5	Pharmacy	Primary	N194	A4056	Approved
+
+

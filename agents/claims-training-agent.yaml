@@ -1,0 +1,31 @@
+spec_version: v1
+kind: native
+name: claims_training_agent
+version: 0.3.0
+description: Train a claims model and save outputs to IBM Cloud Object Storage
+
+implementation:
+  type: python
+  entrypoint: src/train_claims_agent.py
+
+inputs:
+  - id: claims_file
+    type: file
+    description: Historical claims CSV file
+  - id: api_key
+    type: string
+    description: IBM Cloud API key for COS access
+  - id: service_instance_id
+    type: string
+    description: IBM Cloud COS service instance ID
+
+outputs:
+  - id: model_file
+    type: string
+    description: COS URI of trained model
+  - id: training_report
+    type: string
+    description: COS URI of training report
+  - id: feature_schema
+    type: string
+    description: COS URI of feature schema
