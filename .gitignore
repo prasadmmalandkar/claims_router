@@ -1,0 +1,7 @@
+# Ignore artifacts and large files
+artifacts/
+*.pkl
+*.csv
+*.json
+__pycache__/
+venv/
